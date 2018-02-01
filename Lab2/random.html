@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ItHomework</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+
+    <script>
+        var randomNumber = [];
+        var text = "";
+        var i;
+
+        for (i = 0; i < 101; i++) {
+            randomNumber.push(Math.round(Math.random() * 100));
+            text += randomNumber[i] + "<br>";
+        }
+        document.getElementById("demo").innerHTML += text;
+    </script>
+
+</body>
+
+</html>
