@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>IT Homework</title>
+</head>
+
+<body>
+    <p>These are my date Formats</p>
+
+
+    <button type="button" value="Display Date" onclick="popDate()">Populate Dates!</button>
+
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+
+    <script>
+        function popDate() {
+
+            var date1 = new Date();
+            var date2 = new Date("Feb 01 2018");
+            var date3 = new Date("2/01/2018");
+            document.getElementById("demo1").innerHTML = date1;
+            document.getElementById("demo2").innerHTML = date2;
+            document.getElementById("demo3").innerHTML = date3;
+        }
+    </script>
+</body>
+
+</html>
