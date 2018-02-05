@@ -19,11 +19,11 @@
         function popDate() {
 
             var date1 = new Date();
-            var date2 = new Date("Feb 01 2018");
-            var date3 = new Date("2/01/2018");
+            var date2 = new Date();
+            var date3 = new Date();
             document.getElementById("demo1").innerHTML = date1;
-            document.getElementById("demo2").innerHTML = date2;
-            document.getElementById("demo3").innerHTML = date3;
+            document.getElementById("demo2").innerHTML = date2.toISOString();
+            document.getElementById("demo3").innerHTML = date3.toDateString();
         }
     </script>
 </body>
