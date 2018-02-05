@@ -7,17 +7,17 @@
 
 <body>
     <p id="demo"></p>
-
     <script>
-        var randomNumber = [];
+        var arr = [];
         var text = "";
         var i;
-
         for (i = 0; i < 101; i++) {
-            randomNumber.push(Math.round(Math.random() * 100));
-            text += randomNumber[i] + "<br>";
+            arr.push(Math.round(Math.random() * 100));
+            for (j = i; j < arr.length; j++) {
+                text += arr[j] + "<br>";
+            }
         }
-        document.getElementById("demo").innerHTML += text;
+        document.getElementById("demo").innerHTML = text;
     </script>
 
 </body>
