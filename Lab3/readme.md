@@ -12,8 +12,8 @@ The following video demonstrates how the html page should work when you have com
 2. Concatenate the value of Item Description into the table. Change item to the value of itemDescription
 3. Display totalAmount in element with id="totalAmountBeforeTax"
 4. Calculate tax as 7% of total (totalAmount)
-var taxAmount = 0;
 5. Display tax in element with id="totalTax"
 6. Display totalAmount + tax in element with id="totalAfterTax"
 7. Display all currency values that are output to display 2 decimal places
      Hint: use toFixed()
+     
