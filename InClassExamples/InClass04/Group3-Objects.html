@@ -1,0 +1,53 @@
+
+<!-- 
+    Create a JavaScript object. Give it hard-coded values for 
+    restaurantName, streetAddr, city, state, zip, phone, websiteURL.
+
+    Add three methods: makeReservations, finishMeal, getFullAddress
+
+    getFullAddress() should return the following strings concatenated together:
+    streetAddr, city, state, zip (use spaces as commas as you normally would in an address)
+
+    makeReservations() should output the following:
+    "Thank you for making reservations at " + restaurantName + "<br><br>" +
+    "<b>Location:</b><br>" + fullAddress +
+    "<b>Time:</b><br>"
+
+    finishMeal() should output "Thank you for dining at " + restaurantName + " Please " +
+    "let us know how your meal was at " + websiteURL
+
+    Resources: 
+    https://www.w3schools.com/js/js_properties.asp
+    https://www.w3schools.com/js/js_object_methods.asp
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
+-->
+
+<html>
+<head>
+    <style>
+    body { font-size: 30px; }
+    </style>
+    <script>
+    var restaurantObj = {
+        restaurantName: "Tri-C Cafeteria!",
+        streetAddr: "11000 West Pleasant Valley Road",
+        city: "Parma",
+        fullAddress: function() {
+            // need to finish concatenating values
+            return this.restaurantName + ", " + this.streetAddr + ", " + this.city;
+        },
+        makeReservations: function() {
+            // need to finish the output
+            document.getElementById("restaurantOutput").innerHTML = "Thank you for " +
+                "making reservations at " + this.restaurantName;
+        }
+    };
+    </script>
+</head>
+<body>
+<h1>Restaurant Reservations</h1>
+<input type="button" value="Make Reservations" onclick="restaurantObj.makeReservations()">
+<input type="button" value="Finish Meal" onclick=""><br><br>    
+<span id="restaurantOutput"> </span>
+</body>
+</html> 
