@@ -1,0 +1,67 @@
+<html>
+<head>
+<style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif }
+</style>
+<script>
+    // Video Demonstration - https://youtu.be/9CH7_BiI_1A
+    var totalAmount = 0;
+    var items = "<table border='1' cellpadding='4' cellspacing='0'>" +
+        "<tr><td>Item</td><td>Item Cost</td></tr>";
+    function addItem() {
+        var newAmount = document.getElementById('newAmount').value;
+
+        // 1. Add the value of newAmount to the running total totalAmount. Tip: Use parseFloat()
+
+    
+        var itemDescription = document.getElementById('newItem').value;
+        items = items.replace("</table>", "");
+
+        // 2. Concatenate the value of Item Description into the table. Change item to the value of itemDescription
+        //items += "<tr><td>Item</td><td>$" + newAmount + "</td></tr>"
+        items += "<tr><td>item</td><td>$" + parseFloat(newAmount).toFixed(2) + "</td></tr>"
+        items += "</table>";
+        
+        // Display items in element with id="listOfElements"
+        document.getElementById('listOfItems').innerHTML = items;
+
+        /// 3. Display totalAmount in element with id="totalAmountBeforeTax"
+
+        // 4. Calculate tax as 7% of total (totalAmount)
+        var taxAmount = 0;
+
+        // 5. Display tax in element with id="totalTax"
+
+        // 6. Display totalAmount + tax in element with id="totalAfterTax"
+
+        // 7. Display all currency values that are output to display 2 decimal places
+        //      Hint: use toFixed()
+
+        
+        document.getElementById('newItem').value = "";
+        document.getElementById('newAmount').value = "";
+        document.getElementById('newItem').focus();
+    }
+</script>
+</head>
+<body>
+<h1>Grocery List</h1>
+<p>
+<h2>Add Item</h2> 
+Description: <br><input type="text" id="newItem"><br>
+Amount: <br><input type="text" id="newAmount"> 
+<input type="button" onclick="addItem()" value="Add Item">
+</p>
+<h2>Grocery Cart</h2>
+<span id="listOfItems">&nbsp;</span>
+<p>
+<h2>Total</h2>
+Total: $<span id="totalAmountBeforeTax"></span><br>
+Tax: $<span id="totalTax"></span><br>
+Total with Tax: $<span id="totalAfterTax"></span>
+</p>
+<script>
+    document.getElementById('newItem').focus();
+</script>
+</body>
+</html>
