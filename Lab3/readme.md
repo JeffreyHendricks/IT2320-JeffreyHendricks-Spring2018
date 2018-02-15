@@ -16,4 +16,5 @@ The following video demonstrates how the html page should work when you have com
 6. Display totalAmount + tax in element with id="totalAfterTax"
 7. Display all currency values that are output to display 2 decimal places
      Hint: use toFixed()
+
      
