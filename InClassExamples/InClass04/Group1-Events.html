@@ -21,10 +21,29 @@
     <style>
     body { font-size: 30px; }
     </style>
+    <script>
+    function changeColor(color) {
+        document.getElementById('exampleParagraph').style.color=color;
+    }
+    function changeToRed() {
+        document.getElementById('exampleParagraph').style.color='red';
+    }
+    function changeToGreen() {
+        document.getElementById('exampleParagraph').style.color='green';
+    }
+
+    </script>
 </head>
 <body>
 
-<p>Click the button to display the date.</p>
+<!--<p id='exampleParagraph' onmouseover="changeColor('green')" onmouseout="changeColor('red')">
+    Click the button to display the date.
+</p>-->
+<p id='exampleParagraph' 
+    onmouseover="document.getElementById('exampleParagraph').style.color='green'" 
+    onmouseout="document.getElementById('exampleParagraph').style.color='red'">
+        Click the button to display the date.
+    </p>
 
 </body>
 </html> 

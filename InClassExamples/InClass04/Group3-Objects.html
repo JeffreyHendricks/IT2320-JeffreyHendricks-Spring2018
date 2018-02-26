@@ -6,11 +6,11 @@
     Add three methods: makeReservations, finishMeal, getFullAddress
 
     getFullAddress() should return the following strings concatenated together:
-    streetAddr, city, state, zip (use spaces as commas as you normally would in an address)
+    streetAddr, city, state, zip (use spaces and commas as you normally would in an address)
 
     makeReservations() should output the following:
     "Thank you for making reservations at " + restaurantName + "<br><br>" +
-    "<b>Location:</b><br>" + fullAddress +
+    "<b>Location:</b><br>" + fullAddress + "<br>"
     "<b>Time:</b><br>"
 
     finishMeal() should output "Thank you for dining at " + restaurantName + " Please " +
@@ -28,26 +28,45 @@
     body { font-size: 30px; }
     </style>
     <script>
+    window.onload = function() {
+        document.getElementById('restaurantObj').innerHTML = restaurantObj.toString();
+    }
+
+
     var restaurantObj = {
         restaurantName: "Tri-C Cafeteria!",
         streetAddr: "11000 West Pleasant Valley Road",
         city: "Parma",
-        fullAddress: function() {
-            // need to finish concatenating values
-            return this.restaurantName + ", " + this.streetAddr + ", " + this.city;
+        state: "Ohio", 
+        zip: 44310, 
+        phone: "216-987-6000", 
+        websiteURL: "www.tri-c.edu",
+        getFullAddress: function() {
+            // streetAddr, city, state, zip
+            return this.restaurantName + ", " + this.streetAddr + ", " + this.city + ", " +
+                this.state + " " + this.zip;
         },
         makeReservations: function() {
             // need to finish the output
             document.getElementById("restaurantOutput").innerHTML = "Thank you for " +
-                "making reservations at " + this.restaurantName;
-        }
+                "making reservations at " + this.restaurantName + "<br><br>" +
+                "<b>Location:</b><br>" + this.getFullAddress() + "<br>" +
+                "<b>Time:</b>" + Date() + "<br>";
+        },
+        finishMeal: ""
     };
+    restaurantObj.finishMeal = function() {
+        document.getElementById("restaurantOutput").innerHTML = "Thank you for dining at " + 
+            this.restaurantName + " Please " +
+            "let us know how your meal was at " + this.websiteURL
+    }
     </script>
 </head>
 <body>
 <h1>Restaurant Reservations</h1>
 <input type="button" value="Make Reservations" onclick="restaurantObj.makeReservations()">
-<input type="button" value="Finish Meal" onclick=""><br><br>    
-<span id="restaurantOutput"> </span>
+<input type="button" value="Finish Meal" onclick="restaurantObj.finishMeal()"><br><br>    
+<span id="restaurantOutput"> </span><br><br>
+<span id="restaurantObj"> </span>
 </body>
 </html> 

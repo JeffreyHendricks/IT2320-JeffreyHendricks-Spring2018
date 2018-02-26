@@ -1,8 +1,9 @@
 
 <!-- 
     Resources: 
-    https://www.w3schools.com/js/js_events.asp
-    https://www.w3schools.com/js/js_htmldom_css.asp
+    https://www.w3schools.com/js/js_arrays.asp
+    https://www.w3schools.com/js/js_array_methods.asp
+    https://www.w3schools.com/js/js_array_sort.asp
 -->
 
 <html>
@@ -15,6 +16,7 @@
     var itemsArray = [];
     // 2. When the user clicks Add Item, add the item in newItem to itemsArray
     function addItem() {
+        itemsArray.push(document.getElementById('newItem').value);
         displayArray();
     }
     // this method is done.
@@ -26,22 +28,29 @@
     function outputArray() {
         var output = "";
         for (var i in itemsArray) {
-            output = itemsArray[i];
+            output += itemsArray[i] + "<br>";
         }
+        document.getElementById('unsortedItems').innerHTML = output;
     }
 
     // 4. Sort sortedArray and display the items in sortedItems
     function outputSortedArray() {
         var sortedArray = itemsArray.slice();
         // sort sortedArray
+        sortedArray.sort();
 
         // display the array (use outputArray() as an example)
+        var output = "";
+        for (var i in sortedArray) {
+            output += sortedArray[i] + "<br>";
+        }
+        document.getElementById('sortedItems').innerHTML = output + "<br>";
     }
     </script>
 </head>
 <body>
 <h1>Add items to the array</h1>
-New Item: <input type="text" id="newItem"> <input type="button" value="Add Item">
+New Item: <input type="text" id="newItem"> <input type="button" value="Add Item" onclick="addItem()">
 <h2>Unsorted Array:</h2>
 <span id="unsortedItems"> </span>
 <h2>Sorted Array:</h2>

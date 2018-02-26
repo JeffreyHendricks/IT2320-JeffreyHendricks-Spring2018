@@ -22,11 +22,40 @@
     <style>
     body { font-size: 30px; }
     </style>
-    
+    <script>
+    function checkType() {
+        var value = eval(document.getElementById('valueToCheck').value);
+        var valueType = typeof(value);
+        //document.getElementById('typeInfo').innerHTML="The value is: " + valueType;
+
+        var output = "";
+        if (valueType == "number") {
+            output = "It's a number!" + "<br>";
+            output += value.toFixed(0) + "<br>";
+            output += value.toFixed(2) + "<br>";
+            output += value.toFixed(4) + "<br>";
+        }
+        else if (valueType == "boolean") {
+            output = "It's a boolean";
+            if (value) {
+                output += "value=yes if it's true";
+            }
+            else {
+                output += "no if it's false";
+            }
+        }
+        else if (valueType == "object") {
+            output = "Wow, it's an object!";
+        }
+
+        document.getElementById('typeInfo').innerHTML = output;
+    }
+    </script>
 </head>
 <body>
 <h1>Check Type</h1>
-Value: <input type="text" id="valueToCheck"> <input type="button" value="Check Type">
+Value: <input type="text" id="valueToCheck"> 
+<input type="button" value="Check Type" onclick="checkType()"><br><br>
 <span id="typeInfo"> </span>
 </body>
 </html> 

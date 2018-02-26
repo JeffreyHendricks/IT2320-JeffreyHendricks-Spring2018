@@ -20,12 +20,22 @@
     <style>
     body { font-size: 30px; }
     </style>
+    <script>    
+    function buttonClicked() {
+        document.getElementById('outputText').innerHTML="Timer Started...";
+        setTimeout(timerComplete, 4000)
+    }
+    function timerComplete() {
+        document.getElementById('outputText').innerHTML="Timer Complete.";
+    }
+    </script>
+
 </head>
 <body>
 
-<p>Original text.</p>
+<p id="outputText">Original text.</p>
 
-<input type="button" value="Click me to start the timer">
+<input type="button" value="Click me to start the timer" onclick="buttonClicked()">
 
 </body>
 </html> 
