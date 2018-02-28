@@ -4,10 +4,9 @@
         https://www.w3schools.com/jquery/jquery_get_started.asp
 -->
 <script>
-    var totalAmount = 0.00;
-    var currentItems = [];
-    var itemsDisplay = "<table border='1' cellspacing='0' cellpadding='3'><tr><td>Item</td><td>Amount</td></tr></table>";
-    
+    var items = [];
+    var costs = [];
+
     // 2. Change all calls to document.getElementById to the jQuery $ method
 
     // 3. Replace the window.onload event with jQuery document(ready)
@@ -34,9 +33,18 @@
     function addItem() {
         var newItem = document.getElementById('newItem').value;
         var newAmount = parseFloat(document.getElementById('newAmount').value);
-        itemsDisplay = itemsDisplay.replace("</table>", "");
-        itemsDisplay += "<tr><td>" + newItem + "</td><td>$" + newAmount.toFixed(2) + "</td></tr></table>";
-        var itemsSummary = itemsDisplay.replace("</table>");
+        costs.push(newAmount);
+        items.push(newItem);
+
+        var itemsDisplay = "<table border='1' cellspacing='0' cellpadding='3'><tr><td>Item</td><td>Amount</td></tr>"; 
+        var totalAmount = 0.00;
+        for (var i in items) {
+            alert('looping through items');
+            itemsDisplay += "<tr><td>" + items[i] + "</td><td>$" + costs[i].toFixed(2) + "</td></tr>";
+            totalAmount += parseFloat(costs[i]);
+        }
+        var itemsSummary = itemsDisplay;
+        itemsDisplay += "</table>";
         itemsSummary += "<tr><td>Total before tax</td><td>$" + totalAmount.toFixed(2) + "</td></tr>";
         itemsSummary += "<tr><td>Tax amount</td><td>$" + (totalAmount*.07).toFixed(2) + "</td></tr>";
         itemsSummary += "<tr><td>Total with tax</td><td>$" + ((totalAmount*.07)+totalAmount).toFixed(2) + "</td></tr></table>";
@@ -62,7 +70,7 @@
 <div class="w3-bar w3-black">
   <button class="w3-bar-item w3-button" onclick="openTab('addItem')">Add Item</button>
   <button class="w3-bar-item w3-button" onclick="openTab('list')">Order Summary</button>
-  <button class="w3-bar-item w3-button" onclick="openTab('total')">Company Info</button>
+  <button class="w3-bar-item w3-button" onclick="openTab('about')">Company Info</button>
 </div>
 
 <div id="addItem" class="w3-container tab">
@@ -80,11 +88,9 @@
     <span id="summary">&nbsp;</span>
 </div>
 
-<div id="total" class="w3-container tab" style="display:none">
-    <h2>Total</h2>
-    Total: $<span id="totalAmountBeforeTax"></span><br>
-    Tax: $<span id="totalTax"></span><br>
-    Total with Tax: $<span id="totalAfterTax"></span>
+<div id="about" class="w3-container tab" style="display:none">
+    <h2>This is not a real company. It's a project completed in IT 2320 - 
+        Interactive Internet Programming.</h2>
 </div>
 
 
