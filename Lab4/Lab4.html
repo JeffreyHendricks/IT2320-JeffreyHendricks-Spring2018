@@ -1,0 +1,92 @@
+<html>
+<title>IT2320 - Lab 3</title>
+<!-- 1. Add jQuery using a CDN 
+        https://www.w3schools.com/jquery/jquery_get_started.asp
+-->
+<script>
+    var totalAmount = 0.00;
+    var currentItems = [];
+    var itemsDisplay = "<table border='1' cellspacing='0' cellpadding='3'><tr><td>Item</td><td>Amount</td></tr></table>";
+    
+    // 2. Change all calls to document.getElementById to the jQuery $ method
+
+    // 3. Replace the window.onload event with jQuery document(ready)
+    //    https://www.w3schools.com/jquery/jquery_syntax.asp
+    window.onload = function() {
+        document.getElementById('newItem').focus();
+    }
+
+    function openTab(tabName) {
+        var i;
+        // 4. Change getElementsByClassName to the jQuery $ method
+        var x = document.getElementsByClassName("tab");
+        for (i = 0; i < x.length; i++) {
+            // 5. Change the following line style.display = "none" to hide()
+            //    https://www.w3schools.com/jquery/jquery_hide_show.asp
+           x[i].style.display = "none";  
+        }
+
+        // 6. Change the following line style.display = "block" to show()
+        https://www.w3schools.com/jquery/jquery_hide_show.asp
+        document.getElementById(tabName).style.display = "block";  
+    }
+
+    function addItem() {
+        var newItem = document.getElementById('newItem').value;
+        var newAmount = parseFloat(document.getElementById('newAmount').value);
+        itemsDisplay = itemsDisplay.replace("</table>", "");
+        itemsDisplay += "<tr><td>" + newItem + "</td><td>$" + newAmount.toFixed(2) + "</td></tr></table>";
+        var itemsSummary = itemsDisplay.replace("</table>");
+        itemsSummary += "<tr><td>Total before tax</td><td>$" + totalAmount.toFixed(2) + "</td></tr>";
+        itemsSummary += "<tr><td>Tax amount</td><td>$" + (totalAmount*.07).toFixed(2) + "</td></tr>";
+        itemsSummary += "<tr><td>Total with tax</td><td>$" + ((totalAmount*.07)+totalAmount).toFixed(2) + "</td></tr></table>";
+        
+        // 7. Change all .innerHTML properties to jQuery .html() get and set
+        //    https://www.w3schools.com/jquery/jquery_dom_get.asp
+        //    https://www.w3schools.com/jquery/jquery_dom_set.asp
+        //    Example: $('#summary').html(itemsSummary);
+        document.getElementById('summary').innerHTML = itemsSummary;
+        document.getElementById('currentItems').innerHTML = itemsDisplay;
+        // 8. Change all .value properties to jQuery .val() get and set
+        document.getElementById('newItem').value = '';
+        document.getElementById('newAmount').value = '';
+        document.getElementById('newItem').focus();
+    }
+
+    </script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<h1>Grocery List</h1>
+
+<div class="w3-bar w3-black">
+  <button class="w3-bar-item w3-button" onclick="openTab('addItem')">Add Item</button>
+  <button class="w3-bar-item w3-button" onclick="openTab('list')">Order Summary</button>
+  <button class="w3-bar-item w3-button" onclick="openTab('total')">Company Info</button>
+</div>
+
+<div id="addItem" class="w3-container tab">
+    <h2>Add to Shopping Cart</h2> 
+    Description: <br><input type="text" id="newItem"><br>
+    Amount: <br><input type="text" id="newAmount"> <br><br>
+    <input type="button" onclick="addItem()" value="Add Item">
+    <br><br>
+    <h2>Current Items</h2>
+    <span id="currentItems">&nbsp;</span>
+</div>
+
+<div id="list" class="w3-container tab" style="display:none">
+    <h2>Summary</h2>
+    <span id="summary">&nbsp;</span>
+</div>
+
+<div id="total" class="w3-container tab" style="display:none">
+    <h2>Total</h2>
+    Total: $<span id="totalAmountBeforeTax"></span><br>
+    Tax: $<span id="totalTax"></span><br>
+    Total with Tax: $<span id="totalAfterTax"></span>
+</div>
+
+
+</body>
+</html>
