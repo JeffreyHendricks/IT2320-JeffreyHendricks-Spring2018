@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>First jQuery Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    //window.onload() = function() {
+    $(document).ready(function() {
+        // any code that accesses html elements in the dom should go inside document(ready)
+        //alert($('#firstName').val());
+        //$('firstName').val('Will');
+        //$('lastName').val('Wynn');
+        alert($('#exampleParagraph1').text());
+        alert($('#exampleParagraph1').html());
+        $('#exampleParagraph1').text("<b>A better Title</b>");
+        $('#exampleParagraph2').html("<b>A better Title</b>");
+    });
+
+    function showP() {
+        $('#exampleParagraph1').slideDown();
+    }
+    function hideP() {
+        $('#exampleParagraph1').slideUp();
+    }
+
+    // any global functions should be outside document(ready)
+    function addNumbers(a, b) {
+        return a + b;
+    }
+    </script>
+</head>
+<body>
+
+    <p id="exampleParagraph1">
+        <b>Title</b>Somebody said something really important. Just really great text.
+    </p>
+    <p id="exampleParagraph2">
+        <b>Another Title</b>
+        Somebody else said something really important.
+        Just more text.
+    </p>
+<input type="button" onclick="hideP()" value="Hide">
+<input type="button" onclick="showP()" value="Show">
+</body>
+</html>
