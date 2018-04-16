@@ -1,0 +1,21 @@
+{
+    "members": [{
+            "name": "Cara Van",
+            "address": "2 Highway",
+            "city": "Cleveland",
+            "zip": "12345",
+            "phone": "999-999-9999",
+            "level": "Contributing",
+            "cost": "65.00"
+        },
+        {
+            "name": "Bill Bord",
+            "address": "1 Side of street",
+            "city": "Parma",
+            "zip": "11111",
+            "phone": "123-123-1234",
+            "level": "Individual",
+            "cost": "50.00"
+        }
+    ]
+}
